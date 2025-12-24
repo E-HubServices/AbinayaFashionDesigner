@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Elegant Dark Teal & Gold Palette */
+  --color-background: #FDFCFA;
+  --color-foreground: #0D3D3D;
+
+  /* Primary - Deep Teal/Turquoise */
+  --color-primary: #0D4D4D;
+  --color-primary-foreground: #FFFFFF;
+
+  /* Accent - Luxurious Gold */
+  --color-accent: #C9A961;
+  --color-accent-light: #D4B574;
+  --color-accent-muted: rgba(201, 169, 97, 0.1);
+  --color-accent-foreground: #0D3D3D;
+
+  /* Surface Colors */
+  --color-surface-muted: #F5F3F0;
+  --color-surface-dark: #0A3838;
+
+  /* Neutrals & Shadcn Defaults */
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0D3D3D;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #0D3D3D;
+  --color-secondary: #E8E4DF;
+  --color-secondary-foreground: #0D4D4D;
+  --color-muted: #E8E4DF;
+  --color-muted-foreground: #5A6F6F;
+  --color-destructive: #C94949;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #D4CFC7;
+  --color-input: #E8E4DF;
+  --color-ring: #C9A961;
+
+  /* Shadows - Elegant & Subtle */
+  --shadow-premium: 0 20px 50px -10px rgba(13, 61, 61, 0.15);
+  --shadow-glow: 0 15px 40px -10px rgba(201, 169, 97, 0.3);
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-tamil: "Noto Sans Tamil", sans-serif;
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-4xl: 4rem;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+}
+
+/* Custom Utilities that depend on Theme */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.7);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  box-shadow: var(--shadow-sm);
+}
+
+@utility glass-dark {
+  background-color: rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow: var(--shadow-lg);
+}
+
+@utility btn-premium {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 10px;
+  transition-property: all;
+  transition-duration: 500ms;
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-xl);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transform-origin: right;
+    transform: scaleX(0);
+    background-color: currentColor;
+    transition: transform 500ms;
+  }
+
+  &:hover::after {
+    transform-origin: left;
+    transform: scaleX(100%);
+  }
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+    scroll-margin-top: 6rem;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased min-h-screen selection:bg-accent/20 selection:text-primary;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-primary font-medium leading-tight;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-accent/40 transition-colors;
+}
+
+/* Tamil text styling */
+[lang="ta"],
+.tamil-text {
+  font-family: var(--font-tamil) !important;
+  line-height: 1.7;
+}
+
+/* Base Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes pulse-soft {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(176, 141, 87, 0.4);
+  }
+
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(176, 141, 87, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(176, 141, 87, 0);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-soft 3s infinite;
+}
