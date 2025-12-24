@@ -1,6 +1,13 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
+declare const process: {
+    env: {
+        ADMIN_PASSWORD_HASH: string;
+        [key: string]: string | undefined;
+    };
+};
+
 // Validate admin password
 export const validatePassword = query({
     args: { password: v.string() },

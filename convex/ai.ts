@@ -2,6 +2,13 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { api } from "./_generated/api";
 
+declare const process: {
+    env: {
+        OPENAI_API_KEY: string;
+        [key: string]: string | undefined;
+    };
+};
+
 // AI Assistant for customers
 export const chatWithAssistant = action({
     args: {
