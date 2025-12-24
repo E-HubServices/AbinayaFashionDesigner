@@ -10,6 +10,7 @@ import { ChatProvider } from "./contexts/ChatContext"
 import ChatWidget from "./components/ChatWidget"
 import FloatingChatIcon from "./components/FloatingWhatsApp"
 import Navbar from "./components/Navbar"
+import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <AdminProvider>
                         <ChatProvider>
                             <Router>
+                                <ScrollToTop />
                                 <div className="min-h-screen w-full flex flex-col">
                                     <Navbar />
                                     <Routes>
