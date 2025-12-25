@@ -1,11 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { MapPin, Phone, MessageCircle, Instagram, Sparkles, Mail } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useChat } from "@/contexts/ChatContext";
 
 export default function Footer() {
     const { language, t } = useLanguage();
-    const { setIsOpen } = useChat();
 
     return (
         <footer id="contact" className="bg-primary text-white pt-32 pb-16 px-6">
@@ -56,14 +54,16 @@ export default function Footer() {
                                 </li>
                             ))}
                             <li>
-                                <button
-                                    onClick={() => setIsOpen(true)}
+                                <a
+                                    href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || "919788078748"}?text=${encodeURIComponent(language === "ta" ? "வணக்கம் ABI ஃபேஷன்! 🌸 நான் உங்கள் சேவைகளைப் பற்றி அறிய விரும்புகிறேன்." : "Hello ABI Fashion! 🌸 I'm interested in your bespoke design services.")}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="flex items-center gap-3 text-white/90 hover:text-accent transition-all text-sm font-bold uppercase tracking-widest group"
                                 >
                                     <div className="w-0 h-px bg-accent group-hover:w-4 transition-all" />
-                                    <Sparkles size={14} className="text-accent" />
-                                    <span>AI Concierge</span>
-                                </button>
+                                    <MessageCircle size={14} className="text-accent" />
+                                    <span>{language === "ta" ? "WhatsApp வினவல்" : "WhatsApp Inquiry"}</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
