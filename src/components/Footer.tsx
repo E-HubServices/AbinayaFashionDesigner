@@ -90,9 +90,16 @@ export default function Footer() {
 
                 {/* Copyright */}
                 <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black">
-                        © {new Date().getFullYear()} ABI Fashion Designer. All Rights Reserved.
-                    </p>
+                    <div className="flex flex-col items-center md:items-start gap-2">
+                        <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black">
+                            © {new Date().getFullYear()} ABI Fashion Designer. All Rights Reserved.
+                        </p>
+                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/50">
+                            Developed by <span className="text-accent underline decoration-accent/30 underline-offset-4 cursor-pointer hover:text-white transition-colors">Manoj</span>
+                            <span className="mx-2 text-white/10">|</span>
+                            <a href="mailto:manoj12k6@gmail.com" className="hover:text-white transition-colors">manoj12k6@gmail.com</a>
+                        </p>
+                    </div>
                     <div className="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-black text-white/30">
                         <a href="#" className="hover:text-accent transition-colors">Privacy</a>
                         <a href="#" className="hover:text-accent transition-colors">Terms</a>
