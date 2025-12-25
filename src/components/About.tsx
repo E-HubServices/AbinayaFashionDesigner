@@ -46,7 +46,7 @@ export default function About() {
                             {/* Image Container with Custom Mask */}
                             <div className="relative aspect-[4/5] overflow-hidden rounded-[4rem] shadow-premium">
                                 <img
-                                    src="https://images.unsplash.com/photo-1574044536244-92b5872df7e2?q=80&w=1200"
+                                    src="/Blouse3.jpg"
                                     alt="Boutique Craftsmanship"
                                     className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                                 />
