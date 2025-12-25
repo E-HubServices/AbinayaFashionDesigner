@@ -227,24 +227,7 @@ export default function Hero() {
                 </div>
             </motion.div>
 
-            {/* Enhanced Scroll Indicator */}
-            <button
-                onClick={handleScrollDown}
-                style={{ opacity }}
-                className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 sm:gap-4 group cursor-pointer"
-                aria-label="Scroll down"
-            >
-                <div className="relative w-6 h-10 sm:w-7 sm:h-12 rounded-full border-2 border-white/30 group-hover:border-accent/50 transition-colors overflow-hidden">
-                    <motion.div
-                        animate={{ y: [0, 16, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-2 left-1/2 -translate-x-1/2 w-1 h-2 bg-accent rounded-full"
-                    />
-                </div>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white/50 group-hover:text-white/80 font-bold transition-colors">
-                    {language === "ta" ? "கீழே உருட்டவும்" : "Scroll"}
-                </span>
-            </button>
+
 
             {/* Ambient Grain Texture */}
             <div

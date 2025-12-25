@@ -98,7 +98,7 @@ export default function Navbar() {
                     opacity: navOpacity,
                 }}
                 className={cn(
-                    "fixed top-4 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-fit md:min-w-[800px] z-[100] bg-white/90 backdrop-blur-2xl border border-primary/10 rounded-full shadow-premium h-14 lg:h-16 flex items-center px-6 lg:px-8 transition-all duration-500"
+                    "fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[90%] md:w-fit bg-white/80 backdrop-blur-3xl border border-primary/10 rounded-full shadow-premium h-14 lg:h-16 flex items-center px-6 lg:px-10 transition-all duration-500"
                 )}
             >
                 <div className="flex items-center justify-between w-full gap-8">
@@ -240,12 +240,11 @@ export default function Navbar() {
                         </button>
                     </div>
                 </div>
-            </div>
-        </motion.nav >
+            </motion.nav>
 
-            {/* Mobile Menu */ }
-            < AnimatePresence mode = "wait" >
-                { mobileMenuOpen && (
+            {/* Mobile Menu */}
+            <AnimatePresence mode="wait">
+                {mobileMenuOpen && (
                     <>
                         {/* Backdrop */}
                         <motion.div
@@ -344,11 +343,11 @@ export default function Navbar() {
                         </motion.div>
                     </>
                 )
-}
-            </AnimatePresence >
+                }
+            </AnimatePresence>
 
-    {/* Login Modal */ }
-    < LoginModal isOpen = { showLoginModal } onClose = {() => setShowLoginModal(false)} />
+            {/* Login Modal */}
+            <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
         </>
     )
 }
