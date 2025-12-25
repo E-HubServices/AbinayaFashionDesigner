@@ -22,8 +22,8 @@ export default function FloatingChatIcon() {
 
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "919788078748";
     const message = language === "ta"
-        ? "வணக்கம் ABI ஃபேஷன்! 🌸 நான் உங்கள் பிரீமியம் தையல் சேவைகளைப் பற்றி அறிய விரும்புகிறேன். குறிப்பாக ஆரி வேலைப்பாடுகள் மற்றும் திருமண ஆடைகள் பற்றிய விபரங்கள் எனக்குத் தேவை."
-        : "Hello ABI Fashion! 🌸 I'm mesmerized by your couture archive. I'm interested in your premium bespoke services and would like to inquire about custom bridal/Aari work details. Please let me know the process for an appointment.";
+        ? "வணக்கம் ABI ஃபேஷன்! 🌸 நான் உங்கள் பிரீமியம் தையல் சேவைகளைப் பற்றி அறிய விரும்புகிறேன். குறிப்பாக ஆரி வேலைப்பாடுகள் மற்றும் திருமண ஆடைகள் பற்றிய விபரங்கள், தையல் கட்டணங்கள் மற்றும் நேரம் ஒதுக்குதல் பற்றி அறிய விரும்புகிறேன்."
+        : "Hello ABI Fashion! 🌸 I'm mesmerized by your couture archive. I'm interested in your premium bespoke services and would like to inquire about custom bridal/Aari work details, pricing, and the appointment process. Looking forward to your guidance!";
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
