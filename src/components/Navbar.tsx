@@ -94,11 +94,19 @@ export default function Navbar() {
         <>
             <motion.nav
                 ref={navRef}
+                initial={{ y: -100, x: "-50%", opacity: 0 }}
+                animate={{ y: 0, x: "-50%", opacity: 1 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                    delay: 0.1
+                }}
                 style={{
                     opacity: navOpacity,
                 }}
                 className={cn(
-                    "fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[90%] md:w-fit bg-white/80 backdrop-blur-3xl border border-primary/10 rounded-full shadow-premium h-14 lg:h-16 flex items-center px-6 lg:px-10 transition-all duration-500"
+                    "fixed top-4 left-1/2 z-[100] w-[95%] md:w-fit bg-white/80 backdrop-blur-3xl border border-primary/10 rounded-full shadow-premium h-14 lg:h-16 flex items-center px-6 lg:px-10"
                 )}
             >
                 <div className="flex items-center justify-between w-full gap-8">
@@ -257,87 +265,79 @@ export default function Navbar() {
                             aria-hidden="true"
                         />
 
-                        {/* Menu Panel */}
+                        {/* Menu Panel - Vertical Slide Down */}
                         <motion.div
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-                            className="fixed right-0 top-0 bottom-0 z-[200] w-full max-w-sm bg-gradient-to-br from-white via-white to-surface-muted/30 shadow-2xl lg:hidden"
+                            initial={{ y: "-100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-100%" }}
+                            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                            className="fixed inset-0 z-[200] bg-white lg:hidden flex flex-col"
                         >
                             <div className="flex flex-col h-full">
                                 {/* Header */}
-                                <div className="flex items-center justify-between p-6 border-b border-black/5">
-                                    <div>
-                                        <h2 className="text-2xl font-serif font-bold text-primary">Menu</h2>
-                                        <p className="text-[10px] uppercase tracking-widest text-accent font-black mt-0.5">Navigation</p>
+                                <div className="flex items-center justify-between p-8 border-b border-black/5">
+                                    <div className="flex flex-col">
+                                        <span className="font-serif text-3xl font-bold tracking-tighter text-primary">ABI</span>
+                                        <span className="text-[10px] uppercase tracking-[0.4em] font-black -mt-1 text-accent">Couture</span>
                                     </div>
                                     <motion.button
                                         whileTap={{ scale: 0.9 }}
                                         onClick={() => setMobileMenuOpen(false)}
                                         aria-label="Close menu"
-                                        className="w-11 h-11 rounded-full bg-primary/5 hover:bg-primary hover:text-white flex items-center justify-center text-primary transition-all focus-visible:ring-2 focus-visible:ring-accent"
+                                        className="w-12 h-12 rounded-full bg-primary/5 hover:bg-primary hover:text-white flex items-center justify-center text-primary transition-all shadow-sm"
                                     >
-                                        <X size={20} strokeWidth={2} />
+                                        <X size={24} strokeWidth={1.5} />
                                     </motion.button>
                                 </div>
 
                                 {/* Navigation Links */}
-                                <nav className="flex-1 overflow-y-auto p-6 space-y-2" aria-label="Mobile navigation">
+                                <nav className="flex-1 flex flex-col justify-center px-12 space-y-8" aria-label="Mobile navigation">
                                     {navLinks.map((link, index) => {
                                         const isActive = isActiveLink(link.path)
                                         return (
                                             <motion.div
                                                 key={link.id}
-                                                initial={{ opacity: 0, x: 20 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: index * 0.05 }}
+                                                initial={{ opacity: 0, y: 30 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: index * 0.1 + 0.2 }}
                                             >
                                                 <Link
                                                     to={link.path}
                                                     onClick={() => setMobileMenuOpen(false)}
                                                     className={cn(
-                                                        "group flex items-center gap-4 p-4 rounded-2xl transition-all",
-                                                        isActive
-                                                            ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/20"
-                                                            : "text-primary/80 hover:text-primary hover:bg-primary/5"
+                                                        "group flex items-center gap-6 py-4 transition-all",
+                                                        isActive ? "text-accent" : "text-primary hover:text-accent"
                                                     )}
                                                 >
-                                                    <span className="text-lg font-serif font-medium flex-1">
+                                                    <span className="text-5xl md:text-7xl font-serif font-bold tracking-tighter italic">
                                                         {language === "ta" ? link.tamil : link.name}
                                                     </span>
-                                                    <ChevronDown
-                                                        size={18}
-                                                        className={cn(
-                                                            "-rotate-90 transition-transform",
-                                                            isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"
-                                                        )}
-                                                    />
+                                                    <div className={cn(
+                                                        "h-px bg-accent transition-all duration-700",
+                                                        isActive ? "w-20" : "w-0 group-hover:w-12"
+                                                    )} />
                                                 </Link>
                                             </motion.div>
                                         )
                                     })}
                                 </nav>
 
-                                {/* Footer Actions */}
-                                <div className="p-6 border-t border-black/5 space-y-3">
-                                    <motion.button
-                                        whileTap={{ scale: 0.98 }}
-                                        onClick={handleLanguageToggle}
-                                        className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-surface-muted to-surface-muted/50 hover:from-primary hover:to-accent hover:text-white transition-all group"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-xl bg-white/50 group-hover:bg-white/20 flex items-center justify-center transition-colors">
-                                                <Globe size={18} strokeWidth={2} className="text-primary group-hover:text-white transition-colors" />
-                                            </div>
-                                            <span className="text-xs font-black uppercase tracking-widest">
-                                                {language === "en" ? "Switch to Tamil" : "Switch to English"}
-                                            </span>
-                                        </div>
-                                        <span className="text-sm font-serif font-medium">
-                                            {language === "en" ? "தமிழ்" : "EN"}
-                                        </span>
-                                    </motion.button>
+                                {/* Footer Actions - Editorial Style */}
+                                <div className="p-12 border-t border-black/5 flex flex-col items-start gap-8">
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-[9px] uppercase tracking-[0.4em] text-accent font-black">Region / Voice</p>
+                                        <button
+                                            onClick={handleLanguageToggle}
+                                            className="text-2xl font-serif italic text-primary hover:text-accent transition-colors flex items-center gap-4"
+                                        >
+                                            <Globe size={20} className="text-accent" />
+                                            <span>{language === "en" ? "தமிழ் (Tamil)" : "English (UK)"}</span>
+                                        </button>
+                                    </div>
+                                    <div className="space-y-2 opacity-30">
+                                        <p className="text-[9px] uppercase tracking-[0.3em] font-medium text-primary">© {new Date().getFullYear()} ABI Couture</p>
+                                        <p className="text-[9px] uppercase tracking-[0.3em] font-medium text-primary italic">Heritage Bespoke Tailoring</p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
