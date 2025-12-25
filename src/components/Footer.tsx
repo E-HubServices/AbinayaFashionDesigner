@@ -94,15 +94,15 @@ export default function Footer() {
                         <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black">
                             © {new Date().getFullYear()} ABI Fashion Designer. All Rights Reserved.
                         </p>
-                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/50">
-                            Developed by <span className="text-accent underline decoration-accent/30 underline-offset-4 cursor-pointer hover:text-white transition-colors">Manoj</span>
-                            <span className="mx-2 text-white/10">|</span>
+                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white">
+                            Developed by <span className="text-accent underline decoration-accent/50 underline-offset-4 cursor-pointer hover:text-white transition-colors">Manoj</span>
+                            <span className="mx-2 text-white/20">|</span>
                             <a href="mailto:manoj12k6@gmail.com" className="hover:text-white transition-colors">manoj12k6@gmail.com</a>
                         </p>
                     </div>
                     <div className="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-black text-white/30">
-                        <a href="#" className="hover:text-accent transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-accent transition-colors">Terms</a>
+                        <Link to="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
+                        <Link to="/terms" className="hover:text-accent transition-colors">Terms</Link>
                     </div>
                 </div>
             </div>

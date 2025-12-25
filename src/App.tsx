@@ -3,6 +3,8 @@ import Home from './pages/Home'
 import Works from './pages/Works'
 import Admin from './pages/Admin'
 import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import { ConvexClientProvider } from "./components/ConvexClientProvider"
 import { LanguageProvider } from "./contexts/LanguageContext"
 import { AdminProvider } from "./contexts/AdminContext"
@@ -24,6 +26,8 @@ function App() {
                                     <Route path="/" element={<Home />} />
                                     <Route path="/works" element={<Works />} />
                                     <Route path="/contact" element={<Contact />} />
+                                    <Route path="/privacy" element={<Privacy />} />
+                                    <Route path="/terms" element={<Terms />} />
                                     <Route path="/admin" element={<Admin />} />
                                     <Route path="*" element={<Home />} />
                                 </Routes>
