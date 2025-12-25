@@ -7,11 +7,11 @@ export default function FeaturedWorks() {
     const { language, t } = useLanguage();
 
     const collections = [
-        { id: 1, name: "Bridal Couture", sub: "Signature Silk", img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=1400&auto=format&fit=crop", size: "large" }, // Wedding Saree
-        { id: 2, name: "Aari Artistry", sub: "Hand-Threaded", img: "https://images.unsplash.com/photo-1585966444855-66708ab99645?q=80&w=1400&auto=format&fit=crop", size: "tall" }, // Detailed embroidery
-        { id: 3, name: "Designer Salwars", sub: "Modern Fit", img: "https://images.unsplash.com/photo-1631233859262-0d7b12ea7d4c?q=80&w=1400&auto=format&fit=crop", size: "tall" }, // Salwar
-        { id: 4, name: "Kids Ethnic", sub: "Soft & Pure", img: "https://images.unsplash.com/photo-1609357912437-ba7e8417c8ae?q=80&w=1400&auto=format&fit=crop", size: "small" }, // Kids
-        { id: 5, name: "Western Fusion", sub: "Chic & Fluid", img: "https://images.unsplash.com/photo-1522268710313-9fd98b79b293?q=80&w=1400&auto=format&fit=crop", size: "small" }, // Fusion
+        { id: 1, name: "Bridal Couture", sub: "Signature Silk", img: "/Half-Saree.jpg", size: "large" },
+        { id: 2, name: "Aari Artistry", sub: "Hand-Threaded", img: "/Blouse1.jpg", size: "tall" },
+        { id: 3, name: "Designer Salwars", sub: "Modern Fit", img: "/Half-Saree2.jpg", size: "tall" },
+        { id: 4, name: "Kids Ethnic", sub: "Soft & Pure", img: "/Frok.jpg", size: "small" },
+        { id: 5, name: "Western Fusion", sub: "Chic & Fluid", img: "/Frok2.jpg", size: "small" },
     ];
 
     return (

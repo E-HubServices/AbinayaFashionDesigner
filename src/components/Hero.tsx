@@ -30,14 +30,9 @@ export default function Hero() {
     const [imageLoaded, setImageLoaded] = useState(false);
 
     const heroImages = [
-        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=2000&auto=format&fit=crop", // Traditional Saree
-        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=2000&auto=format&fit=crop", // Bridal Wear
-        "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=2000&auto=format&fit=crop", // Dress Detail
-        "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=2000&auto=format&fit=crop", // Designer Lehenga
-        "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=2000&auto=format&fit=crop", // Elegant Dress
-        "https://images.unsplash.com/photo-1605763240000-93ae14d14dfa?q=80&w=2000&auto=format&fit=crop", // Kids Fashion
-        "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=2000&auto=format&fit=crop", // Embroidery Work
-        "https://images.unsplash.com/photo-1582639510494-c80b5de9f148?q=80&w=2000&auto=format&fit=crop"  // Traditional Attire
+        "/hero1.jpg",
+        "/hero2.jpg",
+        "/hero3.jpg"
     ];
 
     // Preload images
@@ -135,8 +130,8 @@ export default function Hero() {
                         aria-label={`Go to slide ${index + 1}`}
                     >
                         <div className={`w-8 sm:w-12 h-1 rounded-full transition-all duration-500 ${index === currentImageIndex
-                                ? "bg-accent"
-                                : "bg-white/20 hover:bg-white/40"
+                            ? "bg-accent"
+                            : "bg-white/20 hover:bg-white/40"
                             }`}>
                             {index === currentImageIndex && (
                                 <motion.div
