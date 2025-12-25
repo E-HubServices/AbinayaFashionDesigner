@@ -98,7 +98,7 @@ export default function Navbar() {
                     opacity: navOpacity,
                 }}
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-3xl border-b border-primary/5 shadow-sm h-20 lg:h-24 flex items-center"
+                    "fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-3xl border-b border-primary/5 shadow-sm h-16 lg:h-20 flex items-center"
                 )}
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,13 +106,13 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link
                             to="/"
-                            className="flex items-center gap-3 lg:gap-4 group relative z-10"
+                            className="flex items-center gap-2 lg:gap-3 group relative z-10"
                             aria-label="ABI Couture Home"
                         >
                             <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="relative w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent rounded-xl lg:rounded-2xl shadow-lg shadow-primary/20"
+                                className="relative w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent rounded-lg lg:rounded-xl shadow-lg shadow-primary/20"
                             >
                                 <Scissors
                                     size={18}
