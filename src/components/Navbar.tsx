@@ -334,9 +334,16 @@ export default function Navbar() {
                                             <span>{language === "en" ? "தமிழ் (Tamil)" : "English (UK)"}</span>
                                         </button>
                                     </div>
-                                    <div className="space-y-2 opacity-30">
+                                    <div className="space-y-3 opacity-40">
                                         <p className="text-[9px] uppercase tracking-[0.3em] font-medium text-primary">© {new Date().getFullYear()} ABI Couture</p>
-                                        <p className="text-[9px] uppercase tracking-[0.3em] font-medium text-primary italic">Heritage Bespoke Tailoring</p>
+                                        <div className="pt-2 border-t border-black/5">
+                                            <p className="text-[9px] uppercase tracking-[0.2em] font-black text-primary">
+                                                Design & Dev: <span className="text-accent">Manoj</span>
+                                            </p>
+                                            <a href="mailto:manoj12k6@gmail.com" className="text-[8px] uppercase tracking-[0.1em] text-primary/60 hover:text-accent transition-colors block mt-1">
+                                                manoj12k6@gmail.com
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
