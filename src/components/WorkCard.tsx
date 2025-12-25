@@ -34,11 +34,8 @@ export default function WorkCard({ work }: WorkCardProps) {
 
     return (
         <>
-            <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative bg-white rounded-[3rem] overflow-hidden border border-border/40 hover:border-accent/40 shadow-sm hover:shadow-premium transition-all duration-700 h-full flex flex-col"
+            <div
+                className="group relative bg-white rounded-[3rem] overflow-hidden border border-border/40 hover:border-accent/40 shadow-sm hover:shadow-premium transition-all duration-300 h-full flex flex-col"
             >
                 {/* Artistic Image Showcase */}
                 <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
@@ -46,7 +43,7 @@ export default function WorkCard({ work }: WorkCardProps) {
                         <img
                             src={work.images[0]}
                             alt={title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 group-hover:rotate-1"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1s] ease-out group-hover:scale-105"
                         />
                     ) : (
                         <div className="absolute inset-0 flex flex-col items-center justify-center opacity-10">
@@ -56,7 +53,7 @@ export default function WorkCard({ work }: WorkCardProps) {
                     )}
 
                     {/* Advanced Overlay System */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" />
 
                     {/* Status Badges */}
                     <div className="absolute top-8 left-8 flex flex-col gap-3">
@@ -69,7 +66,7 @@ export default function WorkCard({ work }: WorkCardProps) {
                     <div className="absolute inset-x-0 bottom-0 p-8 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-700 flex flex-col gap-3">
                         <button
                             onClick={() => setShowDetails(true)}
-                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white text-primary rounded-[2rem] font-black uppercase tracking-[0.25em] text-[10px] shadow-2xl hover:bg-accent hover:text-white transition-all duration-500"
+                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white text-primary rounded-[2rem] font-black uppercase tracking-[0.25em] text-[10px] shadow-2xl hover:bg-accent hover:text-white transition-colors duration-300"
                         >
                             <Eye size={18} strokeWidth={2.5} />
                             <span>{language === "ta" ? "விவரங்கள்" : "View Details"}</span>
@@ -79,7 +76,7 @@ export default function WorkCard({ work }: WorkCardProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white rounded-[2rem] font-black uppercase tracking-[0.25em] text-[10px] shadow-2xl hover:shadow-[#25D366]/50 transition-all duration-500 hover:scale-105"
+                            className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white rounded-[2rem] font-black uppercase tracking-[0.25em] text-[10px] shadow-2xl transition-all duration-300"
                         >
                             <MessageCircle size={18} strokeWidth={2.5} />
                             <span>{language === "ta" ? "WhatsApp" : "WhatsApp"}</span>
@@ -114,7 +111,7 @@ export default function WorkCard({ work }: WorkCardProps) {
                 <div className="absolute top-0 right-0 p-8">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent/20 group-hover:bg-accent group-hover:animate-ping" />
                 </div>
-            </motion.div>
+            </div>
 
             {/* Details Modal */}
             <WorkDetailsModal work={work} isOpen={showDetails} onClose={() => setShowDetails(false)} />

@@ -36,19 +36,13 @@ export default function About() {
 
                     {/* Visual Side - Editorial Layout */}
                     <div className="relative group">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                            viewport={{ once: true }}
-                            className="relative"
-                        >
+                        <div className="relative">
                             {/* Image Container with Custom Mask */}
                             <div className="relative aspect-[4/5] overflow-hidden rounded-[4rem] shadow-premium">
                                 <img
                                     src="/Blouse3.jpg"
                                     alt="Boutique Craftsmanship"
-                                    className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
                             </div>
@@ -71,7 +65,7 @@ export default function About() {
                                     Trusted by over <span className="text-primary font-bold">1,000+ brides</span> for their most precious moments across Tamil Nadu.
                                 </p>
                             </motion.div>
-                        </motion.div>
+                        </div>
 
                         {/* Vertical Decorative Element */}
                         <div className="absolute -left-20 top-1/2 -rotate-90 origin-center hidden xl:block">
@@ -82,49 +76,34 @@ export default function About() {
                     {/* Content Side */}
                     <div className="space-y-16">
                         <div className="space-y-8">
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                className="flex items-center gap-4"
-                            >
+                            <div className="flex items-center gap-4">
                                 <span className="text-accent font-black tracking-[0.5em] uppercase text-[10px]">The Heritage</span>
                                 <div className="h-px flex-1 bg-border/60"></div>
-                            </motion.div>
+                            </div>
 
-                            <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className={`text-6xl md:text-8xl font-serif text-primary leading-[0.9] tracking-tighter ${language === "ta" ? "tamil-text" : ""}`}
-                            >
+                            <h2 className={`text-6xl md:text-8xl font-serif text-primary leading-[0.9] tracking-tighter ${language === "ta" ? "tamil-text" : ""}`}>
                                 {language === "ta" ? (
                                     <>நூலிழையில் <br /><span className="italic text-accent">மாயம்</span></>
                                 ) : (
                                     <>The Alchemy <br />of <span className="italic text-accent">Artistry.</span></>
                                 )}
-                            </motion.h2>
+                            </h2>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="text-primary/80 text-xl leading-relaxed font-light font-sans tracking-wide max-w-xl"
-                            >
+                            <p className="text-primary/80 text-xl leading-relaxed font-light font-sans tracking-wide max-w-xl">
                                 {language === "ta"
                                     ? "அபி ஃபேஷன் டிசைனர் - பாரம்பரிய தையல் கலை மற்றும் நவீன வடிவமைப்பு இரண்டையும் இணைத்து உங்கள் கனவு ஆடையை உருவாக்குகிறோம்."
                                     : "Founded on the principles of precision and passion, ABI Fashion Designer transforms premium textiles into timeless expressions of individuality. Our studio is dedicated to the art of the perfect fit."}
-                            </motion.p>
+                            </p>
                         </div>
 
                         {/* Specializations - Interactive Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             {specs.map((spec, i) => (
-                                <motion.div
+                                <div
                                     key={i}
-                                    whileHover={{ x: 5 }}
                                     className="flex items-start gap-6 group cursor-default"
                                 >
-                                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-surface-muted flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-sm border border-border/40">
+                                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-surface-muted flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300 shadow-sm border border-border/40">
                                         <spec.icon size={22} strokeWidth={1.5} />
                                     </div>
                                     <div className="space-y-1">
@@ -133,7 +112,7 @@ export default function About() {
                                         </span>
                                         <p className="text-[11px] text-primary/70 font-medium leading-relaxed">{spec.desc}</p>
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
 
@@ -148,15 +127,14 @@ export default function About() {
                                 ))}
                             </div>
 
-                            <motion.button
-                                whileTap={{ scale: 0.98 }}
-                                className="group flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary hover:text-accent transition-all duration-300"
+                            <button
+                                className="group flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary hover:text-accent transition-colors duration-300"
                             >
                                 <span>Learn our process</span>
-                                <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                                    <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                                <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                                    <ChevronRight size={14} />
                                 </div>
-                            </motion.button>
+                            </button>
                         </div>
                     </div>
                 </div>

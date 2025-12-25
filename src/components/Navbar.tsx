@@ -109,21 +109,17 @@ export default function Navbar() {
                             className="flex items-center gap-2 lg:gap-3 group relative z-10"
                             aria-label="ABI Couture Home"
                         >
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="relative w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent rounded-lg lg:rounded-xl shadow-lg shadow-primary/20"
-                            >
+                            <div className="relative w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent rounded-lg lg:rounded-xl shadow-lg shadow-primary/20">
                                 <Scissors
                                     size={18}
                                     strokeWidth={1.5}
-                                    className="text-white transition-all duration-700 group-hover:rotate-45"
+                                    className="text-white"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-accent/0 via-accent/10 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </motion.div>
+                                <div className="absolute inset-0 bg-gradient-to-tr from-accent/0 via-accent/10 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
                             <div className="flex flex-col">
-                                <span className="font-serif text-2xl lg:text-3xl font-bold tracking-tighter text-primary">ABI</span>
-                                <span className="text-[9px] lg:text-[10px] uppercase tracking-[0.4em] font-black -mt-1 text-accent">Couture</span>
+                                <span className="font-serif text-xl lg:text-2xl font-bold tracking-tighter text-primary">ABI</span>
+                                <span className="text-[8px] lg:text-[9px] uppercase tracking-[0.4em] font-black -mt-1 text-accent">Couture</span>
                             </div>
                         </Link>
 
@@ -156,41 +152,32 @@ export default function Navbar() {
                         {/* Actions */}
                         <div className="flex items-center gap-3 lg:gap-4">
                             {/* Language Toggle */}
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                            <button
                                 onClick={handleLanguageToggle}
                                 aria-label={`Switch to ${language === "en" ? "Tamil" : "English"}`}
                                 className={cn(
-                                    "hidden sm:flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-2.5 rounded-full transition-all duration-500 group relative overflow-hidden bg-surface-muted/80 hover:bg-primary text-primary hover:text-white shadow-sm"
+                                    "hidden sm:flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-2.5 rounded-full transition-colors duration-300 group relative overflow-hidden bg-surface-muted/80 hover:bg-primary text-primary hover:text-white shadow-sm"
                                 )}
                             >
                                 <Globe size={14} strokeWidth={2.5} className="relative z-10" />
                                 <span className="text-[9px] lg:text-[10px] font-black uppercase tracking-widest relative z-10">
                                     {language === "en" ? "தமிழ்" : "EN"}
                                 </span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </motion.button>
+                                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </button>
 
                             {/* User Dropdown */}
                             <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
                                 <DropdownMenuTrigger asChild>
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
+                                    <button
                                         aria-label="User menu"
                                         className={cn(
-                                            "w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-all duration-500 outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 relative overflow-hidden group bg-gradient-to-br from-primary via-primary to-accent text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
+                                            "w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 relative overflow-hidden group bg-gradient-to-br from-primary via-primary to-accent text-white shadow-lg shadow-primary/30"
                                         )}
                                     >
                                         <User size={16} strokeWidth={2.5} className="relative z-10" />
-                                        <motion.div
-                                            className="absolute inset-0 bg-white/20"
-                                            initial={{ scale: 0, opacity: 0 }}
-                                            whileHover={{ scale: 1.5, opacity: 1 }}
-                                            transition={{ duration: 0.4 }}
-                                        />
-                                    </motion.button>
+                                        <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent
                                     align="end"
@@ -242,17 +229,16 @@ export default function Navbar() {
                             </DropdownMenu>
 
                             {/* Mobile Menu Button */}
-                            <motion.button
-                                whileTap={{ scale: 0.95 }}
+                            <button
                                 onClick={() => setMobileMenuOpen(true)}
                                 aria-label="Open menu"
                                 aria-expanded={mobileMenuOpen}
                                 className={cn(
-                                    "lg:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 bg-primary/10 text-primary hover:bg-primary hover:text-white"
+                                    "lg:hidden w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 bg-primary/10 text-primary hover:bg-primary hover:text-white"
                                 )}
                             >
                                 <Menu size={20} strokeWidth={2} />
-                            </motion.button>
+                            </button>
                         </div>
                     </div>
                 </div>
